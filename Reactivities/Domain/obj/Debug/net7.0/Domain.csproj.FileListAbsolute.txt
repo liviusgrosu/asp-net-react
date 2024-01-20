@@ -1,0 +1,11 @@
+C:\dev\net\asp-net-react\Reactivities\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\dev\net\asp-net-react\Reactivities\Domain\bin\Debug\net7.0\Domain.dll
+C:\dev\net\asp-net-react\Reactivities\Domain\bin\Debug\net7.0\Domain.pdb
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\Domain.dll
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\Domain.pdb
+C:\dev\net\asp-net-react\Reactivities\Domain\obj\Debug\net7.0\ref\Domain.dll
