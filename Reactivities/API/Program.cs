@@ -38,7 +38,8 @@ try
     // Get the data context service and execute any pending migrations
     // As in update the database
     var context = services.GetRequiredService<DataContext>();
-    context.Database.Migrate();
+    await context.Database.MigrateAsync();
+    await Seed.SeedData(context);
 }
 catch (Exception ex)
 {

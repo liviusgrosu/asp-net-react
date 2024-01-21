@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NW+3PPd1Lj3TtuONMTkuBYLmUEg6fpPoTh5umr2d4YxS4gm1dTesn00dWffVX+TON54TgUSm/lkb0SPNj40Oig==",
+  "dgSpecHash": "FUbJYYFB/ja8MQ8Rp2QteR8AonEOEQpH2h7n7ZUYs/nt7rksklav9g5BPu8kDZSgWEB9Z9+wapyS3KRv1lTBpg==",
   "success": true,
-  "projectFilePath": "c:\\dev\\net\\asp-net-react\\Reactivities\\Application\\Application.csproj",
+  "projectFilePath": "C:\\dev\\net\\asp-net-react\\Reactivities\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.4\\microsoft.data.sqlite.core.7.0.4.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.4\\microsoft.entityframeworkcore.7.0.4.nupkg.sha512",
