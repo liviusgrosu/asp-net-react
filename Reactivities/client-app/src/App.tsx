@@ -11,7 +11,7 @@ function App() {
 
   // Triggers when component is rendered
   useEffect(() => {
-    axios.get('http://localhost:5000/api/acitivities')
+    axios.get('http://localhost:5000/api/activities')
       .then(response => {
         setActivites(response.data)
       })
