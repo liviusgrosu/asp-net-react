@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9aFLA55my5XfmpAtQHiwEpoRnGiBcEveh201hLXUevzcyjUeYo7mY0HtDbZpP5FUKY58/pkK+VcIb0pSxfnVAg==",
+  "dgSpecHash": "3HVbviRC9wr6Bk1kjJKFN4ymd/8XvcMCuMvrKX+jRRAtlHKc1c7f9/ccgV6pzShcBmBHtYH0zBxctMUb1I1pbQ==",
   "success": true,
-  "projectFilePath": "C:\\dev\\net\\asp-net-react\\Reactivities\\API\\API.csproj",
+  "projectFilePath": "c:\\dev\\net\\asp-net-react\\Reactivities\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Baby Machine\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.13\\microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",

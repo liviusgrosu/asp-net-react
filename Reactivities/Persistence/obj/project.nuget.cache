@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T2tuLgp0Ta/YkO6dCwmlM2m3xlnDC0EyCzwnkZIB9xE9/1xd1I1lNBhAjnpczVvNSITqeYOEKs5UenuFWrFmlw==",
+  "dgSpecHash": "iwbQqI/Ton9UjAUIyvGMH30Tpw0V0pSlAAnokLW+MZhh/pXMiUsONQgMl1uYp+slLsnR1BEGQEI9cIf1F8b4Lw==",
   "success": true,
-  "projectFilePath": "C:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\Persistence.csproj",
+  "projectFilePath": "c:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.4\\microsoft.data.sqlite.core.7.0.4.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.4\\microsoft.entityframeworkcore.7.0.4.nupkg.sha512",
