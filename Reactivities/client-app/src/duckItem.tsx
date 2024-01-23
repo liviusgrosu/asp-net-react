@@ -1,5 +1,6 @@
 import { Duck } from "./demo"
 
+// We're using a Props interface because we have to explicitly define teh property of the DuckItem function
 interface Props {
     duck: Duck
 }
