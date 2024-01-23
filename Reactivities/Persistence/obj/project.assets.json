@@ -1160,11 +1160,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "c:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\Persistence.csproj",
+      "projectPath": "C:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\Baby Machine\\.nuget\\packages\\",
-      "outputPath": "c:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\obj\\",
+      "outputPath": "C:\\dev\\net\\asp-net-react\\Reactivities\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Baby Machine\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1181,8 +1181,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\dev\\net\\asp-net-react\\Reactivities\\Domain\\Domain.csproj": {
-              "projectPath": "c:\\dev\\net\\asp-net-react\\Reactivities\\Domain\\Domain.csproj"
+            "C:\\dev\\net\\asp-net-react\\Reactivities\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\dev\\net\\asp-net-react\\Reactivities\\Domain\\Domain.csproj"
             }
           }
         }
