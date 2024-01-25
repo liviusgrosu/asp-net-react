@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Wz0hOE4/7UkIT4edoeV9S5IjIFiKSbq9HHP8vnJeBBmV0Vk0dOUtQYmSKwA0xzb8GjLC4OOTD3sTRKYFX7FjdA==",
+  "dgSpecHash": "jygc1XJgqa8C7++FFlh+J2smEzCLNDBQYZ61wkLh4tQ+a2D96hYtRjEOFcQDgfcVvbiRtFpq6UZkaJ0gl7mScw==",
   "success": true,
   "projectFilePath": "C:\\dev\\net\\asp-net-react\\Reactivities\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Baby Machine\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Baby Machine\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.4\\microsoft.data.sqlite.core.7.0.4.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.4\\microsoft.entityframeworkcore.7.0.4.nupkg.sha512",
     "C:\\Users\\Baby Machine\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.4\\microsoft.entityframeworkcore.abstractions.7.0.4.nupkg.sha512",
