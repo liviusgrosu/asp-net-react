@@ -4,6 +4,7 @@ using Persistence;
 using Domain;
 using MediatR;
 using Application.Activities;
+using Application.Details;
 
 namespace API.Controllers
 {
@@ -18,7 +19,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Activity>> GetActivity(Guid id)
         {
-            return Ok();
+            return await Mediator.Send(new Details.Query { Id = id });
         }
     }
 }
