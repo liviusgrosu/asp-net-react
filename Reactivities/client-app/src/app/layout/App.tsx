@@ -1,9 +1,10 @@
-import { useState, useEffect, Fragment } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Container } from 'semantic-ui-react';
 import { Activity } from '../models/activity';
 import NavBar from './NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
+import {v4 as uuid} from 'uuid';
 
 function App() {
   // [] is an empty default value
@@ -54,12 +55,16 @@ function App() {
     // F - Add new activity to list
     activity.id 
       ? setActivites([...activities.filter(x => x.id !== activity.id), activity]) 
-      : setActivites([...activities, activity]); // Add to the list of activities
+      : setActivites([...activities, {...activity, id: uuid()}]); // Add to the list of activities
 
     // Hide the edit form 
     setEditMode(false);
     // Show the updated/new activity
     setSelectedActivity(activity);
+  }
+
+  function handleDeleteActivity(id: string) {
+    setActivites([...activities.filter(x => x.id !== id)]);
   }
 
   return (
@@ -75,6 +80,7 @@ function App() {
           openForm={handleFormOpen}
           closeForm={handleFormClose}
           createOrEdit={handleCreateOrEditActivity}
+          deleteActivity={handleDeleteActivity}
         />
       </Container>
     </>
