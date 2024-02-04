@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     CardMeta,
     CardHeader,
@@ -13,9 +12,11 @@ import {
 
 interface Props{
     activity : Activity
+    cancelSelectActivity: () => void;
+    openForm: (id: string) => void;
 }
 
-export default function ActivityDetails({activity} : Props)
+export default function ActivityDetails({activity, cancelSelectActivity, openForm} : Props)
 {
     return (  
         <Card fluid>
@@ -31,8 +32,8 @@ export default function ActivityDetails({activity} : Props)
             </CardContent>
             <CardContent extra>
                 <ButtonGroup widths='2'>
-                    <Button basic color='blue' content='Edit'/>
-                    <Button basic color='blue' content='Cancel'/>
+                    <Button onClick={() => openForm(activity.id)} basic color='blue' content='Edit'/>
+                    <Button onClick={() => cancelSelectActivity()} basic color='blue' content='Cancel'/>
                 </ButtonGroup>
             </CardContent>
         </Card>
