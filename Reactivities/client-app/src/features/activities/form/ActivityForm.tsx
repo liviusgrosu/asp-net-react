@@ -6,10 +6,11 @@ interface Props{
     closeForm: () => void;
     activity: Activity | undefined;
     createOrEdit: (activity: Activity) => void;
+    submitting: boolean;
 }
 
 // activity: selectedActivity is put in as a rename because we have a hook for the current data object that we're editing
-export default function ActivityForm({closeForm, activity: selectedActivity, createOrEdit}: Props)
+export default function ActivityForm({closeForm, activity: selectedActivity, createOrEdit, submitting}: Props)
 {
     // Need to have a data object for the hook
     const initialState = selectedActivity ?? {
@@ -42,7 +43,7 @@ export default function ActivityForm({closeForm, activity: selectedActivity, cre
                 <Form.Input type='date' placeholder='Date' value={activity.date} name='date' onChange={handleInputChange}/>
                 <Form.Input placeholder='City' value={activity.city} name='city' onChange={handleInputChange}/>
                 <Form.Input placeholder='Venue' value={activity.venue} name='venue' onChange={handleInputChange}/>
-                <Button floated='right' positive type='submit' content='Submit'/>
+                <Button loading={submitting} floated='right' positive type='submit' content='Submit'/>
                 <Button onClick={closeForm} floated='right' positive type='button' content='cancel'/>
             </Form>
         </Segment>
