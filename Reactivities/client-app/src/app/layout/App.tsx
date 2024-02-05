@@ -1,24 +1,33 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios';
 import { Container } from 'semantic-ui-react';
 import { Activity } from '../models/activity';
 import NavBar from './NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import {v4 as uuid} from 'uuid';
+import agent from '../api/agent';
+import LoadingComponents from './LoadingComponents';
 
 function App() {
   // [] is an empty default value
   const [activities, setActivites] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // Triggers when component is rendered
   useEffect(() => {
     // Get the API request for all activities in the DB
-    axios.get<Activity[]>('http://localhost:5000/api/activities')
-      .then(response => {
+    agent.Activities.list().then(response => {
+        let activities: Activity[] = [];
+        // Don't include the time
+        response.forEach(activity => {
+          activity.date = activity.date.split('T')[0]
+          // We do this because response.date is read only
+          activities.push(activity);
+        })
         // Store that in this state
-        setActivites(response.data);
+        setActivites(activities);
+        setLoading(false);
       })
   }, []);
 
@@ -63,8 +72,14 @@ function App() {
     setSelectedActivity(activity);
   }
 
-  function handleDeleteActivity(id: string) {
+  function handleDeleteActivity(id: string) 
+  {
     setActivites([...activities.filter(x => x.id !== id)]);
+  }
+
+  if (loading) 
+  {
+    return <LoadingComponents content='Loading app'/>
   }
 
   return (
