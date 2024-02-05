@@ -33,7 +33,8 @@ export default function ActivityDashboard({activities,
             <Grid.Column width='10'>
                 <ActivityList activities={activities} 
                 selectActivity={selectActivity}
-                deleteActivity={deleteActivity}/>
+                deleteActivity={deleteActivity}
+                submitting={submitting}/>
             </Grid.Column>
             <Grid.Column width='6'>
                 {/* Show the activity if its selected and being updated or a new one is created */}
