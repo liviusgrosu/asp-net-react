@@ -7,6 +7,7 @@ import {v4 as uuid} from 'uuid';
 import agent from '../api/agent';
 import LoadingComponents from './LoadingComponents';
 import { useStore } from '../stores/store';
+import { observer } from 'mobx-react-lite';
 
 function App() {
   const {activityStore} = useStore()
@@ -15,25 +16,12 @@ function App() {
   const [activities, setActivites] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
   // Triggers when component is rendered
   useEffect(() => {
-    // Get the API request for all activities in the DB
-    agent.Activities.list().then(response => {
-        let activities: Activity[] = [];
-        // Don't include the time
-        response.forEach(activity => {
-          activity.date = activity.date.split('T')[0]
-          // We do this because response.date is read only
-          activities.push(activity);
-        })
-        // Store that in this state
-        setActivites(activities);
-        setLoading(false);
-      })
-  }, []);
+    activityStore.loadActivities();
+  }, [activityStore])
 
   function handleSelectActivity(id: string)
   {
@@ -49,6 +37,7 @@ function App() {
 
   function handleFormOpen(id?: string)
   {
+    console.log("opening form....");
     // This will either show a card of an activity or close it
     // In the case of a new activity, it will close something thats not there
     id ? handleSelectActivity(id) : handleCancelSelectActivity();
@@ -97,7 +86,7 @@ function App() {
     })
   }
 
-  if (loading) 
+  if (activityStore.loadingInitial) 
   {
     return <LoadingComponents content='Loading app'/>
   }
@@ -106,9 +95,8 @@ function App() {
     <>
       <NavBar openForm={handleFormOpen}/>
       <Container style={{marginTop: '7em'}}>
-        <h2>{activityStore.title}</h2>
         <ActivityDashboard 
-          activities={activities}
+          activities={activityStore.activities}
           selectedActivity={selectedActivity}
           selectActivity={handleSelectActivity}
           cancelSelectActivity={handleCancelSelectActivity}
@@ -124,4 +112,4 @@ function App() {
   )
 }
 
-export default App
+export default observer(App);
