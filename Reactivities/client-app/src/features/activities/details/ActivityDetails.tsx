@@ -8,32 +8,36 @@ import {
     Button,
     ButtonGroup
   } from 'semantic-ui-react'
-  import { Activity } from '../../../app/models/activity';
+import { useStore } from '../../../app/stores/store';
+import LoadingComponents from '../../../app/layout/LoadingComponents';
 
-interface Props{
-    activity : Activity
-    cancelSelectActivity: () => void;
-    openForm: (id: string) => void;
-}
-
-export default function ActivityDetails({activity, cancelSelectActivity, openForm} : Props)
+export default function ActivityDetails()
 {
+    const {activityStore} = useStore();
+    const {selectedActivity, openForm, cancelSelectedActivity} = activityStore;
+
+    if (!selectedActivity) {
+        return <LoadingComponents/>;
+    }
+
+    console.log('opening details...');
+
     return (  
         <Card fluid>
-            <Image src={`/assets/categoryImages/${activity.category}.jpg`}/>
+            <Image src={`/assets/categoryImages/${selectedActivity.category}.jpg`}/>
             <CardContent>
-                <CardHeader>{activity.title}</CardHeader>
+                <CardHeader>{selectedActivity.title}</CardHeader>
                 <CardMeta>
-                    <span>{activity.date}</span>
+                    <span>{selectedActivity.date}</span>
                 </CardMeta>
                 <CardDescription>
-                    {activity.description}
+                    {selectedActivity.description}
                 </CardDescription>
             </CardContent>
             <CardContent extra>
                 <ButtonGroup widths='2'>
-                    <Button onClick={() => openForm(activity.id)} basic color='blue' content='Edit'/>
-                    <Button onClick={() => cancelSelectActivity()} basic color='blue' content='Cancel'/>
+                    <Button onClick={() => openForm(selectedActivity.id)} basic color='blue' content='Edit'/>
+                    <Button onClick={() => cancelSelectedActivity()} basic color='blue' content='Cancel'/>
                 </ButtonGroup>
             </CardContent>
         </Card>
