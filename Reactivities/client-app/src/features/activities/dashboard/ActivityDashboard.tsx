@@ -12,14 +12,15 @@ export default observer(function ActivityDashboard()
   
     // Triggers when component is rendered
     useEffect(() => {
+        // This is a workaround for when you refresh the page when viewing a single activity
         if (activityRegistry.size <= 1) {
             loadActivities();
         }
-    }, [loadActivities, activityRegistry.size])
+    }, [activityRegistry.size, loadActivities])
 
     if (activityStore.loadingInitial) 
     {
-      return <LoadingComponents content='Loading app'/>
+        return <LoadingComponents content='Loading app'/>
     }
 
     return (

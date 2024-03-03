@@ -19,6 +19,7 @@ export default observer (function ActivityForm()
         } = activityStore;
 
     const {id} = useParams();
+    // Hook that navigates back to certain parts of the site (basically <Link/>)
     const navigate = useNavigate();
 
     const [activity, setActivity] = useState<Activity>({
@@ -33,6 +34,7 @@ export default observer (function ActivityForm()
 
     useEffect(() => {
         if (id) {
+            // ! = cannot be null
             loadActivity(id).then(activity => setActivity(activity!));
         }
     }, [id, loadActivity])

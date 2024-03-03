@@ -1,6 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import { Activity } from "../models/activity";
 
+axios.defaults.baseURL = 'http://localhost:5000/api'
+
+/*
 const sleep = (delay: number) => {
     // resolve is the function that gets called after the delay
     return new Promise((resolve) =>
@@ -9,7 +12,6 @@ const sleep = (delay: number) => {
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5000/api'
 
 axios.interceptors.response.use(async response => {
     try {
@@ -20,6 +22,7 @@ axios.interceptors.response.use(async response => {
         return await Promise.reject(error);
     }
 });
+*/
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 
