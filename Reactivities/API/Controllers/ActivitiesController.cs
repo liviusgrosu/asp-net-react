@@ -5,7 +5,6 @@ using Domain;
 using MediatR;
 using Application.Activities;
 using Application.Details;
-using Application;
 
 namespace API.Controllers
 {

@@ -78,3 +78,6 @@ C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\MediatR.Contracts.dll
 C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\AutoMapper.dll
 C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\FluentValidation.dll
+C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\dev\net\asp-net-react\Reactivities\API\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll

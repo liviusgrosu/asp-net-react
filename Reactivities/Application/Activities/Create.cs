@@ -6,6 +6,7 @@ using Domain;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
 
 namespace Application.Activities
 {
@@ -14,6 +15,14 @@ namespace Application.Activities
         public class Command: IRequest
         {  
             public Activity Activity { get; set; } 
+        }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                RuleFor(x => x.Activity).SetValidator(new ActivityValidator());
+            }
         }
 
         public class Handler : IRequestHandler<Command>
