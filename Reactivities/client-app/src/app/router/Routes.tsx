@@ -3,6 +3,7 @@ import App from "../layout/App"
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import ActivityForm from "../../features/activities/form/ActivityForm";
 import ActivityDetails from "../../features/activities/details/ActivityDetails";
+import TestErrors from "../../features/errors/TestError";
 
 export const router = createBrowserRouter([
     {
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
              // We add these key tags so that react can render them differently
              {path: 'createActivity', element: <ActivityForm key='create'/>},
              {path: 'manage/:id', element: <ActivityForm key='manage'/>},
+             {path: 'errors', element: <TestErrors/>},
          ] 
      },
  ]);
