@@ -19,9 +19,12 @@ const sleep = (delay: number) => {
 axios.interceptors.response.use(async response => {
     return response;
 }, (error: AxiosError) => {
-    const {data, status} = error.response as AxiosResponse;
+    const {data, status, config} = error.response as AxiosResponse;
     switch (status) {
         case 400:
+            if (config.method === 'get' && Object.prototype.hasOwnProperty.call(data.errors, 'id')) {
+                router.navigate('/not-found')
+            }
             if (data.errors) {
                 const modelStateErrors = [];
                 for (const key in data.errors) {
