@@ -11,5 +11,26 @@ namespace Persistence
         }
 
         public DbSet<Activity> Activities {  get; set; } 
+        public DbSet<ActivityAttendee> ActivityAttendees { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // We are configuring the activity attendee join entity relationship
+            builder.Entity<ActivityAttendee>(x => x.HasKey(aa => new {aa.AppUserId, aa.ActivityId}));
+
+            // Users <1-*> Activity
+            builder.Entity<ActivityAttendee>()
+                .HasOne(u => u.AppUser)
+                .WithMany(a => a.Activites)
+                .HasForeignKey(aa => aa.AppUserId);
+
+            // Users <*-1> Activity
+            builder.Entity<ActivityAttendee>()
+                .HasOne(u => u.Activity)
+                .WithMany(a => a.Attendees)
+                .HasForeignKey(aa => aa.ActivityId);
+        }
     }
 }
