@@ -15,12 +15,9 @@ function App() {
   const {commonStore, userStore} = useStore();
 
   useEffect(() => {
-    console.log("Loading app...");
     if (commonStore.token) {
-      console.log("Found a token in the common store");
       userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
-      console.log("No token found in the common store");
       commonStore.setAppLoaded();
     }
   }, [commonStore, userStore])

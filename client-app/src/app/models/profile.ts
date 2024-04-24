@@ -3,5 +3,4 @@ export interface Profile {
     displayName: string;
     image?: string;
     bio?: string;
-
 }
