@@ -3,6 +3,7 @@ import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
 import {Activity} from "../../../app/models/activity";
 import { Link } from 'react-router-dom';
 import {format} from 'date-fns';
+import { useStore } from '../../../app/stores/store';
 
 const activityImageStyle = {
     filter: 'brightness(30%)'
@@ -22,6 +23,8 @@ interface Props {
 }
 
 export default observer (function ActivityDetailedHeader({activity}: Props) {
+    const {activityStore: {updateAttendance, loading}} = useStore();
+    
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
@@ -37,7 +40,7 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                                 />
                                 <p>{format(activity.date!, 'dd MMM yyyy h:mm aa')}</p>
                                 <p>
-                                    Hosted by <strong>Bob</strong>
+                                    Hosted by <strong><Link to={`/profiles/${activity.host?.username}`}>{activity.host?.displayName}</Link></strong>
                                 </p>
                             </Item.Content>
                         </Item>
@@ -45,11 +48,15 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Activity</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${activity.id}`} color='orange' floated='right'>
-                    Manage Event
-                </Button>
+                {activity.isHost ? (
+                    <Button as={Link} to={`/manage/${activity.id}`} color='orange' floated='right'>
+                        Manage Event
+                    </Button>
+                ) : activity.isGoing ? (
+                    <Button onClick={updateAttendance}>Cancel attendance</Button>
+                ) : (
+                    <Button onClick={updateAttendance} color='teal'>Join Activity</Button>
+                )}
             </Segment>
         </Segment.Group>
     )
