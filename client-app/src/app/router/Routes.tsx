@@ -7,6 +7,7 @@ import TestErrors from "../../features/errors/TestError";
 import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
 import LoginForm from "../../features/users/loginform";
+import ProfilePage from "../../features/profiles/ProfilePage";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
              // We add these key tags so that react can render them differently
              {path: 'createActivity', element: <ActivityForm key='create'/>},
              {path: 'manage/:id', element: <ActivityForm key='manage'/>},
+             {path: 'profiles/:username', element: <ProfilePage/>},
              {path: 'login', element: <LoginForm/>},
              {path: 'errors', element: <TestErrors/>},
              {path: 'not-found', element: <NotFound/>},
