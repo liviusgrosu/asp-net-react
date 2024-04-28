@@ -81,6 +81,7 @@ const Account = {
 
 const Profiles = {
     get: (username: string) => requests.get<Profile>(`/profiles/${username}`),
+    updateProfile: (profile: Partial<Profile>) => requests.put(`/profiles`, profile),
     uploadPhoto: (file: Blob) => {
         const formData = new FormData;
         formData.append('File', file);
@@ -89,7 +90,7 @@ const Profiles = {
         })
     },
     setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
-    deletePhoto: (id: string) => requests.del(`/photos/${id}`)
+    deletePhoto: (id: string) => requests.del(`/photos/${id}`),
 }
 
 const agent = {

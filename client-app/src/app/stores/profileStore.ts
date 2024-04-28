@@ -36,6 +36,26 @@ export default class ProfileStore {
         }
     }
 
+    updateProfile = async (profile: Partial<Profile>) => {
+        this.loadingProfile = true;
+        console.log(profile);
+        try {
+            await agent.Profiles.updateProfile(profile);
+            runInAction(() => {
+                if (profile.displayName)
+                {
+                    store.userStore.setDisplayName(profile.displayName);
+                }
+                this.profile = {...this.profile, ...profile as Profile};
+                this.loadingProfile = false;
+            })
+        } catch (error) {
+            console.log(error);
+            runInAction(() => this.loadingProfile = false);
+        }
+
+    }
+
     uploadPhoto = async (file: Blob) => {
         this.uploading = true;
 
