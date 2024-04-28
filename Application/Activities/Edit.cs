@@ -1,10 +1,5 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
 using Domain;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Persistence;
 using AutoMapper;
 using FluentValidation;
