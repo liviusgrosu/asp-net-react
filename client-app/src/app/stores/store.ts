@@ -4,6 +4,7 @@ import CommonStore from "./commonStore";
 import UserStore from "./userStore";
 import ModalStore from "./modalStore";
 import ProfileStore from "./profileStore";
+import CommentStore from "./commentStore";
 
 // Define the store
 interface Store {
@@ -12,6 +13,7 @@ interface Store {
     userStore: UserStore;
     modalStore: ModalStore;
     profileStore: ProfileStore;
+    commentStore: CommentStore;
 }
 
 // We instantiate our stores here
@@ -21,6 +23,7 @@ export const store: Store = {
     userStore: new UserStore(),
     modalStore: new ModalStore(),
     profileStore: new ProfileStore(),
+    commentStore: new CommentStore(),
 }
 
 // We create the react context of the store so its available to use between components
