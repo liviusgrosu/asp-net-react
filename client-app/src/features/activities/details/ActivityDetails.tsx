@@ -12,7 +12,7 @@ import ActivityDetailedSidebar from './ActivityDetailedSidebar';
 export default observer (function ActivityDetails()
 {
     const {activityStore} = useStore();
-    const {selectedActivity, loadActivity, loadingInitial} = activityStore;
+    const {selectedActivity, loadActivity, loadingInitial, clearSelectedActivity} = activityStore;
     // Pull from URL
     const {id} = useParams();
 
@@ -20,7 +20,10 @@ export default observer (function ActivityDetails()
         if (id) {
             loadActivity(id);
         }
-    }, [id, loadActivity])
+        return () => {
+            clearSelectedActivity();
+        }
+    }, [id, loadActivity, clearSelectedActivity])
   
     // Show loading as activity is loading
     if (loadingInitial || !selectedActivity) {
