@@ -8,6 +8,7 @@ export default class ProfileStore {
     loadingProfile = false;
     uploading = false;
     loading = false;
+    followings: Profile[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -107,6 +108,34 @@ export default class ProfileStore {
                     this.profile.photos = this.profile.photos.filter(p => p.id != photo.id);
                     this.loading = false;
                 }
+            })
+        } catch (error) {
+            console.log(error);
+            runInAction(() => this.loading = false);
+        }
+    }
+
+    updateFollowing = async (username: string, following: boolean) => {
+        this.loading = true;
+        try {
+            await agent.Profiles.updateFollowing(username);
+            store.activityStore.updateAttendeeFollowing(username);
+            runInAction(() => {
+                // If we're looking at a profile that isn't the user logged in
+                // We change the profiles followers to include/exclude the logged in user
+                // Then we say we are either following or not this viewed profile 
+                if (this.profile && this.profile.username != store.userStore.user?.username) {
+                    following ? this.profile.followersCount++ : this.profile.followersCount--;
+                    this.profile.following = !this.profile.following;
+                }
+                // we then toggle the logged in account following in this viewed profiles 
+                this.followings.forEach(profile => {
+                    if(profile.username == username) {
+                        profile.following ? profile.followersCount-- : profile.followersCount++;
+                        profile.following = !profile.following;
+                    }
+                })
+                this.loading = false;
             })
         } catch (error) {
             console.log(error);

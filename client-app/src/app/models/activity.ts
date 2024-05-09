@@ -37,7 +37,7 @@ export class Activity implements IActivity {
   isCancelled: boolean = false;
   isGoing: boolean = false;
   isHost: boolean = false;
-  attendees?: Profile[]
+  attendees: Profile[] = [];
   host?: Profile;
 }
 
