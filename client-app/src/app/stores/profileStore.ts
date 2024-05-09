@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, reaction, runInAction } from "mobx";
 import { Photo, Profile } from "../models/profile";
 import agent from "../api/agent";
 import { store } from "./store";
@@ -10,9 +10,26 @@ export default class ProfileStore {
     loading = false;
     followings: Profile[] = [];
     loadingFollowings = false;
+    activeTab = 0;
  
     constructor() {
         makeAutoObservable(this);
+
+        reaction(
+            () => this.activeTab,
+            activeTab => {
+                if (activeTab === 3 || this.activeTab === 4) {
+                    const predicate = activeTab === 3 ? 'followers' : 'following';
+                    this.loadFollowings(predicate);
+                } else {
+                    this.followings = [];
+                }
+            }
+        )
+    }
+
+    setActiveTab = (activeTab: number) => {
+        this.activeTab = activeTab;
     }
 
     get isCurrentUser() {
@@ -125,9 +142,15 @@ export default class ProfileStore {
                 // If we're looking at a profile that isn't the user logged in
                 // We change the profiles followers to include/exclude the logged in user
                 // Then we say we are either following or not this viewed profile 
-                if (this.profile && this.profile.username != store.userStore.user?.username) {
+                if (this.profile && 
+                    this.profile.username !== store.userStore.user?.username && 
+                    this.profile.username === username) {
                     following ? this.profile.followersCount++ : this.profile.followersCount--;
                     this.profile.following = !this.profile.following;
+                }
+                // If we follow/unfollow someone on our own account, then update the metrics
+                if (this.profile && this.profile.username === store.userStore.user?.username) {
+                    following ? this.profile.followingCount++ : this.profile.followingCount--;
                 }
                 // we then toggle the logged in account following in this viewed profiles 
                 this.followings.forEach(profile => {
