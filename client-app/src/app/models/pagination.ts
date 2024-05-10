@@ -14,3 +14,8 @@ export class PaginatedResults<T> {
         this.pagination = pagination;
     }
 }
+
+export class PagingParams {
+    pageNumber = 2;
+    pageSize = 3;
+}
