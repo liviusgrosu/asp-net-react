@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import ActivityFilters from "./ActivityFilters";
 import { PagingParams } from "../../../app/models/pagination";
 import InfiniteScroll from "react-infinite-scroller";
+import ActivityListItemPlaceholder from "./ActivityListItemPlaceholder";
 
 export default observer(function ActivityDashboard()
 {
@@ -28,23 +29,27 @@ export default observer(function ActivityDashboard()
         }
     }, [activityRegistry.size, loadActivities])
 
-    if (activityStore.loadingInitial && !loadingNext) 
-    {
-        return <LoadingComponents content='Loading activities...'/>
-    }
+
 
     return (
         <Grid>
             <Grid.Column width='10'>
-                <InfiniteScroll
-                    pageStart={0}
-                    loadMore={handleGetNext}
-                    hasMore={!loadingNext && !!pagination && 
-                        pagination.currentPage < pagination.totalPages}
-                    initialLoad={false}
-                >
-                    <ActivityList/>
-                </InfiniteScroll>
+                {activityStore.loadingInitial && activityRegistry.size === 0 && !loadingNext ? (
+                    <>
+                        <ActivityListItemPlaceholder/>
+                        <ActivityListItemPlaceholder/>
+                    </>
+                ) : (
+                    <InfiniteScroll
+                        pageStart={0}
+                        loadMore={handleGetNext}
+                        hasMore={!loadingNext && !!pagination && 
+                            pagination.currentPage < pagination.totalPages}
+                        initialLoad={false}
+                    >
+                        <ActivityList/>
+                    </InfiniteScroll>
+                )}
             </Grid.Column>
             <Grid.Column width='6'>
                 <ActivityFilters/>
