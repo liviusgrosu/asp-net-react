@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 import {format} from 'date-fns';
 import { useStore } from '../../../app/stores/store';
 
-const activityImageStyle = {
-    filter: 'brightness(30%)'
-};
-
 const activityImageTextStyle = {
     position: 'absolute',
     bottom: '5%',
@@ -32,7 +28,7 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                     <Label style={{position: 'absolute', zIndex: 1000, left: -14, top: 20}} 
                         ribbon color='red' content = 'Cancelled'/>
                 }
-                <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle}/>
+                <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid className="activityImageStyle"/>
                 <Segment style={activityImageTextStyle} basic>
                     <Item.Group>
                         <Item>

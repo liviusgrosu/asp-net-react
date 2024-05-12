@@ -42,8 +42,8 @@ namespace Application.Activities
                     .OrderBy(d => d.Date)
                     .ProjectTo<ActivityDto>(
                         _mapper.ConfigurationProvider, 
-                        new { currentUsername = _userAccessor.GetUsername() 
-                    })
+                        new { currentUsername = _userAccessor.GetUsername() }
+                    )
                     .AsQueryable();
 
                 if (request.Params.IsGoing && !request.Params.IsHost)

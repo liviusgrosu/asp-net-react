@@ -5,6 +5,7 @@ import { observer } from "mobx-react-lite";
 import ProfileBio from "./ProfileBio";
 import ProfileFollowings from "./ProfileFollowings";
 import { useStore } from "../../app/stores/store";
+import ProfileEvents from "./ProfileEvents";
 
 interface Props {
     profile: Profile;
@@ -17,7 +18,7 @@ export default observer(function ProfileContent({profile}: Props) {
     const panes = [
         {menuItem: 'About', render: () => <ProfileBio profile={profile}/>},
         {menuItem: 'Photos', render: () => <ProfilePhotos profile={profile}/>},
-        {menuItem: 'Events', render: () => <Tab.Pane>Events Content</Tab.Pane>},
+        {menuItem: 'Events', render: () => <ProfileEvents/>},
         {menuItem: 'Followers', render: () => <ProfileFollowings/>},
         {menuItem: 'Following', render: () => <ProfileFollowings/>},
     ];

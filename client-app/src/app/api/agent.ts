@@ -6,6 +6,7 @@ import { store } from "../stores/store";
 import { User, UserFormValues } from "../models/user";
 import { Photo, Profile } from "../models/profile";
 import { PaginatedResults } from "../models/pagination";
+import { UserActivities } from "../models/userActivities";
 
 axios.defaults.baseURL = 'http://localhost:5000/api'
 
@@ -100,7 +101,9 @@ const Profiles = {
     deletePhoto: (id: string) => requests.del(`/photos/${id}`),
     updateFollowing: (username: string) => requests.post(`/follow/${username}`, {}),
     listFollowings: (username: string, predicate: string) => 
-        requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`)
+        requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`),
+    listUserActivities: (username: string, predicate: string) =>
+        requests.get<UserActivities[]>(`/profiles/${username}/activities?predicate=${predicate}`)
 }
 
 const agent = {
