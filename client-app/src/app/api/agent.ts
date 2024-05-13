@@ -8,7 +8,7 @@ import { Photo, Profile } from "../models/profile";
 import { PaginatedResults } from "../models/pagination";
 import { UserActivities } from "../models/userActivities";
 
-axios.defaults.baseURL = 'http://localhost:5000/api'
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 axios.interceptors.request.use(config => {
   const token = store.commonStore.token;

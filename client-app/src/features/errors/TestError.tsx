@@ -5,7 +5,7 @@ import axios from 'axios';
 import ValdiationError from './ValidationError';
 
 export default function TestErrors() {
-    const baseUrl = 'http://localhost:5000/api/'
+    const baseUrl = `${import.meta.env.VITE_API_URL}/api/`
     const [errors, setErrors] = useState(null);
 
     function handleNotFound() {
